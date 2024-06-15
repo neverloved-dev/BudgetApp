@@ -1,0 +1,32 @@
+version: "1.0"
+services:
+  db:
+    container_name: "postges"
+    image: postgres:13.14
+    restart: always
+    environment:
+      - POSTGRES_USER=rootuser
+      - POSTGRES_PASSWORD=rootpassword
+      - POSTGRES_DB=finance-app-database
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_DATABASE: UserDatabase
+      MONGO_INITDB_ROOT_USERNAME: neverloveddev1
+      MONGO_INITDB_ROOT_PASSWORD: vpZVg1OvPGin6y2Q
+    volumes:
+      - mongo_data:/data/db
+    ports:
+        - "27017:27017"
+
+volumes:
+  db:
+    driver: local
+  postgres_data:
+  mongo_data:

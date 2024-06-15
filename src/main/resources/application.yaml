@@ -1,0 +1,9 @@
+ktor:
+    port: 8008
+
+
+db:
+    url: "jdbc.postgresql://localhost:5432/postgres"
+    user: "rootuser"
+    pass: "rootpassword"
+    pool: 2
